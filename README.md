@@ -48,5 +48,5 @@ travel time from neighborhood distances.
 
 ## Team
 
-Niramay Kelkar — Engineering
-Mrunmayee Joshi — Product / AI Agents
+- Niramay Kelkar — Engineering
+- Mrunmayee Joshi — Product / AI Agents
