@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LocalScout — Make the most of your next free hour in San Francisco</title>
+  <meta name="description" content="LocalScout plans the best side event and meal around your schedule in San Francisco." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a href="#" class="brand" data-go="landing"><span class="logo">◎</span> LocalScout</a>
+    <span class="pill">Demo · sample data</span>
+  </header>
+
+  <main>
+    <!-- 1. Landing -->
+    <section id="landing" class="screen active hero">
+      <p class="eyebrow">San Francisco · Real-time schedule planner</p>
+      <h1>Make the most of your next free hour in San Francisco.</h1>
+      <p class="lead">Tell LocalScout where you are and where you need to be. It finds the side event, meal and route that fit the gap in your day.</p>
+      <button class="btn primary big" data-go="form">Plan my free hour →</button>
+      <ul class="features">
+        <li><strong>Side events</strong> that match your interests</li>
+        <li><strong>Restaurants</strong> that fit your diet and budget</li>
+        <li><strong>Travel-aware</strong> so you never miss your next meeting</li>
+      </ul>
+    </section>
+
+    <!-- 2. Form -->
+    <section id="form" class="screen">
+      <div class="panel">
+        <h2>Tell us about your gap</h2>
+        <p class="muted">A few details and we'll build your plan.</p>
+        <form id="planForm" novalidate>
+          <div class="grid">
+            <label class="full">Current location
+              <select name="from" required id="fromSel"></select>
+            </label>
+            <label>Available from
+              <input type="time" name="start" value="16:00" required />
+            </label>
+            <label>Available until
+              <input type="time" name="end" value="19:00" required />
+            </label>
+            <label class="full">Next event location
+              <select name="to" required id="toSel"></select>
+            </label>
+            <label>Must arrive by
+              <input type="time" name="deadline" value="19:30" required />
+            </label>
+            <label>Budget (total, USD)
+              <input type="number" name="budget" min="0" step="5" value="60" required />
+            </label>
+            <label class="full">Interests
+              <input type="text" name="interests" list="interestList" placeholder="e.g. AI, startups, investors, design (comma separated)" value="AI, startups" />
+              <datalist id="interestList"></datalist>
+            </label>
+            <label class="full">Food preferences
+              <select name="food">
+                <option value="none">No restrictions</option>
+                <option value="vegetarian">Vegetarian</option>
+                <option value="vegan">Vegan</option>
+                <option value="gluten-free">Gluten-free</option>
+                <option value="halal">Halal</option>
+                <option value="pescatarian">Pescatarian</option>
+                <option value="quick">Quick bite only</option>
+              </select>
+            </label>
+          </div>
+          <p id="formError" class="error" role="alert" hidden></p>
+          <div class="actions">
+            <button type="button" class="btn ghost" data-go="landing">Back</button>
+            <button type="submit" class="btn primary">Find my plan</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 3. Processing -->
+    <section id="processing" class="screen">
+      <div class="panel center">
+        <div class="spinner" aria-hidden="true"></div>
+        <h2>Scouting San Francisco…</h2>
+        <ol id="steps" class="steps" aria-live="polite">
+          <li>Understanding your schedule</li>
+          <li>Finding side events</li>
+          <li>Checking restaurants</li>
+          <li>Calculating travel time</li>
+          <li>Verifying schedule fit</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 4. Results -->
+    <section id="results" class="screen">
+      <div class="results-head">
+        <div>
+          <h2>Your three best plans</h2>
+          <p class="muted" id="summary"></p>
+        </div>
+        <button class="btn ghost" data-go="form">Edit details</button>
+      </div>
+      <p id="notice" class="notice" hidden></p>
+      <div id="cards" class="cards"></div>
+    </section>
+  </main>
+
+  <footer>LocalScout demo · Uses bundled sample data, so no live APIs are called. Travel times are estimates.</footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
